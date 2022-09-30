@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-left: 1rem;
+  background-image: url("/img/circuito.jpg");
+  color: white;
+}
+body header {
+  margin-top: 1rem;
+  display: flex;
+  width: 98vw;
+}
+body header .header__logo {
+  display: flex;
+  background-image: url("../img/estrellas.gif");
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px #4f9, inset 0 0 20px #4f9;
+  border-radius: 10%;
+  height: 16rem;
+  width: 15vw;
+}
+body header .header__logo .header__logo__span1, body header .header__logo .header__logo__span2 {
+  font-size: 4rem;
+  animation: "efecto_leds" 1.5s linear infinite;
+}
+body header .header__logo .header__logo__span2 {
+  font-size: 1rem;
+}
+body header .header__banner {
+  display: grid;
+  width: 80vw;
+  padding-left: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+body header .header__banner .header__banner__logo {
+  box-shadow: 0 0 20px #4f9, inset 0 0 20px #4f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10%;
+}
+body header .header__banner .header__banner__logo img {
+  border-radius: 10%;
+  width: 90%;
+  height: 15rem;
+}
+
+main h1 {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  text-shadow: 2px 2px #14bc25;
+  width: 100%;
+  float: center;
+}
+main .main__hardware {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 98vw;
+}
+main .main__hardware #procesador {
+  background-image: url("/img/procesador.jpg");
+  background-size: 100% 100%;
+}
+main .main__hardware #motherboard {
+  background-image: url("/img/motherboard.jpg");
+  background-size: 100% 100%;
+}
+main .main__hardware #memoria {
+  background-image: url("/img/ram.jpeg");
+  background-size: 100% 100%;
+}
+main .main__hardware #almacenamiento {
+  background-image: url("/img/el-disco-duro-1.webp");
+  background-size: 100% 100%;
+}
+main .main__hardware #grafica {
+  background-image: url("/img/tarjeta de video.webp");
+  background-size: 100% 100%;
+}
+main .main__hardware #gabinete {
+  background-image: url("/img/gabinete.jpg");
+  background-size: 100% 100%;
+}
+main .main__hardware #monitor {
+  background-image: url("/img/monitor.jpg");
+  background-size: 100% 100%;
+}
+main .main__hardware #teclado {
+  background-image: url("/img/teclado.jpg");
+  background-size: 100% 100%;
+}
+main .main__hardware #raton {
+  background-image: url("/img/mouse.jpg");
+  background-size: 100%;
+}
+main .main__hardware h2 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  opacity: 0.7;
+  background-color: gray;
+}
+main .main__hardware .main__hardware__componente {
+  border: 0.5rem solid rgb(18, 195, 11);
+  height: 15rem;
+  width: 15rem;
+  display: flex;
+  margin: 1rem;
+  border-radius: 10%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(70%);
+}
+main .main__hardware .main__hardware__componente img {
+  width: 100%;
+  height: 100%;
+}
+main .main__hardware .main__hardware__componente:hover {
+  filter: grayscale(0%);
+  box-shadow: 0 0 20px #4f9;
+}
+main .main__modal {
+  display: none;
+  position: absolute;
+  border: 2px solid rgb(10, 210, 70);
+  width: 95vw;
+  background-color: black;
+}
+main .main__modal .main__modal__barraT {
+  display: flex;
+  justify-content: center;
+}
+main .main__modal .main__modal__barraT .main__modal__cerrar {
+  width: 2rem;
+  height: 2rem;
+  background-color: black;
+}
+main .main__modal .main__modal__barraT .main__modal__cerrar img {
+  width: 1rem;
+  height: 1rem;
+}
+main .main__modal .main__modal__categoria, main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__titulo {
+  display: block;
+  width: 100%;
+  text-align: center;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+main .main__modal .main__modal__ofertas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item {
+  display: flex;
+  background-color: rgb(11, 10, 10);
+  border-color: green;
+  flex-direction: column;
+  border-radius: 5%;
+  border-style: solid;
+  margin: 2rem 1rem;
+  height: 20rem;
+  width: 20rem;
+  box-shadow: 0 0 10px #4f9;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__titulo {
+  background-color: green;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item img {
+  width: 100%;
+  height: 80%;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item img:hover {
+  cursor: pointer;
+  border: 2px dotted green;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__precio {
+  display: flex;
+  width: 98%;
+  justify-content: right;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__precio .precio__articulo {
+  width: 3rem;
+  background-color: black;
+  color: #4f9;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__precio .bottonAgregar {
+  background-color: black;
+  color: rgb(28, 198, 28);
+  border-color: #4f9;
+  margin-left: 1rem;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__descripcion {
+  display: flex;
+  padding-left: 3rem;
+  background-color: black;
+  width: 20rem;
+  height: 20rem;
+  margin-top: 3rem;
+  flex-direction: column;
+  position: absolute;
+  opacity: 0.7;
+  align-self: center;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__descripcion ul {
+  height: 14rem;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__descripcion ul li {
+  color: rgb(57, 205, 57);
+  margin-top: 1rem;
+}
+main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__descripcion .btnCerrar {
+  background-color: black;
+  color: rgb(28, 198, 28);
+  border-color: #4f9;
+  font-size: 1.5rem;
+}
+main .main__hardware__tprecio {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid green;
+  align-items: flex-end;
+}
+main .main__hardware__tprecio .precio__articulo {
+  width: 3rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  background-color: rgb(12, 10, 10);
+  color: #4f9;
+}
+
+.imagen__articulo {
+  width: 19rem;
+  height: 29%;
+}
+
+@keyframes efecto_leds {
+  from {
+    text-shadow: 0 0 15px rgb(0, 255, 0), 0 0 25px rgb(43, 255, 0), 0 0 45px rgb(18, 173, 34), 0 0 85px rgb(43, 255, 0);
+    color: green;
+  }
+  to {
+    color: white;
+    text-shadow: 0 0 15px rgb(2, 19, 2), 0 0 25px rgb(24, 25, 24), 0 0 45px rgb(2, 16, 3), 0 0 45px rgb(4, 12, 2);
+  }
+}
+@media (max-width: 950px) {
+  body header .header__logo {
+    width: 20vw;
+  }
+  body header .header__banner {
+    width: 70vw;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+  body #cuadro-3,
+body #cuadro-4 {
+    display: none;
+  }
+  main {
+    background-color: red;
+  }
+}
+@media (max-width: 476px) {
+  body header .header__logo {
+    width: 40vw;
+    height: 20vh;
+  }
+  body header .header__banner {
+    margin: 0;
+    width: 30vw;
+    width: 12rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0rem;
+    padding-left: 0.4rem;
+  }
+  body header .header__banner .header__banner__logo {
+    margin: 0;
+  }
+  body header .header__banner .header__banner__logo img {
+    height: 10rem;
+    width: 10rem;
+  }
+  body #cuadro-2,
+body #cuadro-3,
+body #cuadro-4 {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=estilos.css.map */
