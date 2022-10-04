@@ -27,41 +27,58 @@ let memorias=[new componente("kingston","ddr8-8gb",80,"amd-Intel"),
 let discos=[new componente("SONY","estado Solido 250gb",80,"amd-Intel"),
             new componente("kingston","Estado Solido 500",150,"amd-Intel")
         ];
+
+/*MUESTRA OPCIONES DE ARTICULOS*/
 function mostrar_opciones(comp){
     let texto="\n";
+   let correcto=false;
     for(let i=0;i<comp.length;i++)
     {
-    texto+="opc"+ i+")-"+comp[i].marca+"-"+comp[i].modelo+"\n";
+    texto+="opcion"+ i+"-"+comp[i].marca+"-"+comp[i].modelo+"Precio:-"+comp[i].precio+"\n";
+    }
+do{ 
+    let opcion=prompt("cual desea:"+texto);
+    if(parseInt(opcion)<parseInt(comp.length))
+    {
+        correcto=true;
+        return opcion;
+    }
+    else
+    alert("la opcion no es correcta")
+}
+while(correcto!=true)
+
     
 }
-let opcion=prompt("cual desea:"+texto);
-    return opcion;
-}
+
+/*CALCULA EL TOTAL DE LO COMPRADO*/ 
 function calculaTotal(pc){
 let precioT=0;
-
-console.log("\n\n==========================")
 for(let i=0;i<pc.length;i++){
     precioT=parseInt(pc[i].precio)+precioT;
-console.log(i+"--"+pc[i].marca+"-"+pc[i].modelo+"-"+pc[i].precio+"US$");
+alert(i+"--"+pc[i].marca+"-"+pc[i].modelo+"-"+pc[i].precio+"US$");
 }
 iva=precioT*0.22;
 subtotal=precioT-iva;
 alert("sub-total es:"+subtotal+"US$\n"+"iva 22%:"+iva+"US$\n"+"TOTAL:"+precioT+"US$");
+}
+function DevuelveCompatible(componentes,compatibilidad){
 
-
-
+let Mcompatibles=motherboard.filter(function(motherboard){return motherboard.compatible===compatibilidad;})
+return Mcompatibles;
 }
 
 let computadora=[];
 let op=0;
-console.log("ARMANDO TU COMPUTADORA");
+
 
 op=mostrar_opciones(procesadores);
 computadora.push(procesadores[op]);
 
-op=mostrar_opciones(motherboard);
-computadora.push(motherboard[op]);
+let Mcompatibles=DevuelveCompatible(motherboard,procesadores[op].compatible);
+console.log(Mcompatibles);
+op=mostrar_opciones(Mcompatibles);
+computadora.push(Mcompatibles[op]);
 
 op=mostrar_opciones(memorias);
 computadora.push(memorias[op]);
