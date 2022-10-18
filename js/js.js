@@ -85,7 +85,7 @@ function agrego_comp(componentes)
 return buscarC(componentes,op);
 }
 
-//ejecucion 1001
+//ejecucion 
 let armoPc=[];
 armoPc.push(agrego_comp(procesadores));
 armoPc.push(agrego_comp(filtraC(motherboard,armoPc[0].compatible)));
@@ -95,9 +95,9 @@ armoPc.push(agrego_comp(discos));
 
 let total=calcula_total(armoPc);
 let subtotal=total/1.22;
-1let iva=total-subtotal;
+let iva=total-subtotal;
 alert("RESUMEN DE LA COMPRA\n"+ armoPc.map(mostrar_item)+"Subtotal "+parseInt(subtotal)+"US$\niva 22%  "+parseInt(iva)+"US$\nTOTAL:"+total+"us$");
-console.log(armoPc);
+
 
 
 
