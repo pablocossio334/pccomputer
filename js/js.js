@@ -30,7 +30,7 @@ const procesadores=[new componente("1001","amd","ryzen5",195,"amd"),
                 new componente("1004","intel","corei7",280,"intel")];
 
 
-const motherboard=[new componente("2O001","Asrock","AA209",300,"amd"),
+const motherboard=[new componente("2001","Asrock","AA209",300,"amd"),
                 new componente("2002","BIOSTAR","AAE",300,"amd"),
                 new componente("2003","Gigabyte","AA209",380,"intel"),
                 new componente("2004","AORUS","AA209",480,"intel"),
