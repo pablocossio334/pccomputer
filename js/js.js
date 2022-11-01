@@ -150,6 +150,8 @@ function carga_componente(componente){
 function agregarComp(e){
   document.querySelector('.main__modal').remove();
   let articulo= buscarEnInventario(e.target.id);
+  localStorage.setItem(articulo.categoria,JSON.stringify(articulo.item));
+  console.log("el index 1 es "+localStorage.key(1));
   let tabla=document.getElementById("tabla");
   let fila=document.createElement('tr');
   fila.innerHTML=`<td><img class="main__carrito__table__img" src="${articulo.item.img}" alt=""></td></td><td>${articulo.item.codigo}</td><td>${articulo.item.marca} ${articulo.item.modelo}<td>${articulo.item.precio}US$`;
@@ -180,9 +182,8 @@ function buscarEnInventario(num)
     {let articulo={categoria:categoria,
     item:comP}
     
-    localStorage.setItem(articulo.categoria,JSON.stringify(articulo.item));
-    /*let coso=JSON.parse(localStorage.getItem('motherboard'));
-    console.log(coso.categoria);*/
+    
+    
     
       return articulo;
 
