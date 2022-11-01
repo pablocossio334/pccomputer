@@ -52,20 +52,23 @@ body header .header__banner .header__banner__logo img {
   height: 15rem;
 }
 
-main h1 {
-  display: block;
-  text-align: center;
-  margin-top: 2rem;
-  text-shadow: 2px 2px #14bc25;
-  width: 100%;
-  float: center;
+main {
+  display: flex;
 }
 main .main__hardware {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
-  width: 98vw;
+  width: 60vw;
+}
+main .main__hardware h1 {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  text-shadow: 2px 2px #14bc25;
+  width: 100%;
+  float: center;
 }
 main .main__hardware #procesador {
   background-image: url("/img/procesador.jpg");
@@ -108,7 +111,8 @@ main .main__hardware h2 {
   width: 100%;
   text-align: center;
   opacity: 0.7;
-  background-color: gray;
+  margin-top: 1rem;
+  text-shadow: 0.1em 0.1em 0.2em greenyellow;
 }
 main .main__hardware .main__hardware__componente {
   border: 0.5rem solid rgb(18, 195, 11);
@@ -131,24 +135,31 @@ main .main__hardware .main__hardware__componente:hover {
   box-shadow: 0 0 20px #4f9;
 }
 main .main__modal {
-  display: none;
-  position: absolute;
-  border: 2px solid rgb(10, 210, 70);
-  width: 95vw;
+  display: flex;
+  flex-direction: column;
   background-color: black;
+  animation: "slide" 1.5s linear;
+  background-size: cover;
+  position: absolute;
+  border-radius: 10px;
+  left: 5rem;
+  width: 80rem;
+  border: 2px solid rgb(11, 241, 80);
+  background-color: rgb(15, 16, 15);
 }
 main .main__modal .main__modal__barraT {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 main .main__modal .main__modal__barraT .main__modal__cerrar {
+  border-radius: 10px;
+  margin: 0.4rem;
   width: 2rem;
   height: 2rem;
-  background-color: black;
-}
-main .main__modal .main__modal__barraT .main__modal__cerrar img {
-  width: 1rem;
-  height: 1rem;
+  background-color: rgb(243, 12, 12);
+  color: rgb(236, 225, 225);
+  float: right;
 }
 main .main__modal .main__modal__categoria, main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__titulo {
   display: block;
@@ -183,15 +194,13 @@ main .main__modal .main__modal__ofertas .main__modal__ofertas__item img {
 }
 main .main__modal .main__modal__ofertas .main__modal__ofertas__item img:hover {
   cursor: pointer;
-  border: 2px dotted green;
 }
 main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__precio {
   display: flex;
   width: 98%;
-  justify-content: right;
 }
 main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal__ofertas__item__precio .precio__articulo {
-  width: 3rem;
+  float: left;
   background-color: black;
   color: #4f9;
 }
@@ -239,12 +248,43 @@ main .main__hardware__tprecio .precio__articulo {
   background-color: rgb(12, 10, 10);
   color: #4f9;
 }
+main .main__carrito {
+  border-style: solid;
+  margin-top: 2rem;
+  color: #14bc25;
+  width: 40%;
+}
+main .main__carrito .main__carrito__table {
+  background-color: #010a02;
+}
+main .main__carrito .main__carrito__table .botonQuitar {
+  margin: 0.5rem;
+  background-color: red;
+  color: white;
+  height: 2rem;
+  width: 2rem;
+}
+main .main__carrito .main__carrito__table .main__carrito__table__img {
+  height: 5rem;
+  width: 5rem;
+}
+main .main__carrito .main__carrito__table td {
+  border: 2px solid rgba(255, 255, 255, 0.716);
+}
 
 .imagen__articulo {
   width: 19rem;
   height: 29%;
 }
 
+@keyframes slide {
+  from {
+    left: -100rem;
+  }
+  to {
+    left: 5rem;
+  }
+}
 @keyframes efecto_leds {
   from {
     text-shadow: 0 0 15px rgb(0, 255, 0), 0 0 25px rgb(43, 255, 0), 0 0 45px rgb(18, 173, 34), 0 0 85px rgb(43, 255, 0);
@@ -267,9 +307,6 @@ main .main__hardware__tprecio .precio__articulo {
   body #cuadro-3,
 body #cuadro-4 {
     display: none;
-  }
-  main {
-    background-color: red;
   }
 }
 @media (max-width: 476px) {

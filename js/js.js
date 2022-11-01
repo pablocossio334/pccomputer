@@ -1,106 +1,233 @@
-
-class componente{
-    constructor(cod,marca,modelo,precio,compatible){
-        this.codigo=cod;
-        this.marca=marca;
-        this.modelo=modelo;
-        this.precio=precio;
-        this.compatible=compatible;
-
-    }
-    subTotal(acu,producto)
-    {
-    
-    acu=acu+acu+producto.precio;
+class componente {
+  constructor(cod, marca, modelo, precio, compatible,img) {
+    this.codigo = cod;
+    this.marca = marca;
+    this.modelo = modelo;
+    this.precio = precio;
+    this.img=img;
+    this.compatible = compatible;
+  }
+  subTotal(acu, producto) {
+    acu = acu + acu + producto.precio;
     return acu;
-    }
-    existe(num){
-        return this.codigo==num;
-    }
-    esCompatible(Compatible){
-    return this.compatible==Compatible
-    }
-  
+  }
+  existe(num) {
+    return this.codigo == num;
+  }
+  esCompatible(Compatible) {
+    return this.compatible == Compatible;
+  }
 }
 
-//agrego los articulos 
-const procesadores=[new componente("1001","amd","ryzen5",195,"amd"),
-                new componente("1002","amd","ryzen7",200,"amd"),
-                new componente("1003","intel","corei5",270,"intel"),
-                new componente("1004","intel","corei7",280,"intel")];
+//agrego los articulos
+const procesadores = [
+  new componente("1001", "amd", "ryzen5", 195, "amd","../img/cpu/amd/ryzen5.png"),
+  new componente("1002", "amd", "ryzen7", 200, "amd","../img/cpu/amd/ryzen7.png"),
+  new componente("1003", "intel", "corei5", 270, "intel","../img/cpu/intel/core5.png"),
+  new componente("1004", "intel", "corei7", 280, "intel","../img/cpu/intel/core7.png"),
+];
 
+const motherboard = [
+  new componente("2001", "Asrock", "AA209", 300, "amd","../img/motherboard/amd/ASROCK.jpg"),
+  new componente("2002", "BIOSTAR", "A320m Am4", 300, "amd","../img/motherboard/amd/BIOSTAR.jpg"),
+  new componente("2003", "Gigabyte", "AA209", 380, "intel","img/motherboard/intel/4ef32c54_5-241x241.png"),
+  new componente("2004", "AORUS", "AA209", 480, "intel","../img/motherboard/intel/aorus1.jpg"),
+];
+const memorias = [
+  new componente("3001", "kingston", "ddr8-8gb", 80, "amd-Intel","../img/ram/kingstonbeast.jpg"),
+  new componente("3002", "kingston", "ddr8-16gb", 100, "amd-Intel","../img/ram/Kingston-Fury-Beast-DDR5-RGB.webp"),
+];
+const discos = [
+  new componente("4001", "SONY", "estado Solido 250gb", 80, "amd-Intel","../img/motherboard/disco/kingston 250.jpg"),
+  new componente("4002", "kingston", "Estado Solido 500", 150, "amd-Intel","../img/motherboard/disco/kingston480.jpg"),
+];
+const video=[
+            new componente("5003","ASUS","RADEON RX550",249,"amd","../img/video/amd/rx-550.jpg"),
+            new componente("5002","BIOSTAR","Dual Radeon Rx 6500",593,"amd","../img/video/amd/rx6500.jpg")
+];
 
-const motherboard=[new componente("2001","Asrock","AA209",300,"amd"),
-                new componente("2002","BIOSTAR","AAE",300,"amd"),
-                new componente("2003","Gigabyte","AA209",380,"intel"),
-                new componente("2004","AORUS","AA209",480,"intel"),
-                ];
-const memorias=[new componente("3001","kingston","ddr8-8gb",80,"amd-Intel"),
-            new componente("3002","kingston","ddr8-16gb",100,"amd-Intel")
-            ];
-const discos=[new componente("4001","SONY","estado Solido 250gb",80,"amd-Intel"),
-            new componente("4002","kingston","Estado Solido 500",150,"amd-Intel")
-        ];
-
-
+const gabinetes=[
+                new componente("6002","Nzxt","H510 Elite 2",259,"amd,intel","../img/gabinete/Nzxt H510.jpg"),
+                new componente("6003","Xigmatek","Venom X Arctic E-atx 4",129,"amd,intel","../img/gabinete/venom.jpg")
+];
+const monitores=[
+  new componente("7003","LG ","UltraGear 24GN600 ",249,"amd,intel","../img/monitor/24GN600.jpg"),
+  new componente("7002","SAMSUMG","F390 Series C24F390FH",593,"amd,intel","../img/monitor/C24F390FH.jpg")
+];
+const teclados=[
+  new componente("8003","COUGAR"," Core Sp",50,"amd,intel","../img/teclado/Teclado-Mecanico-Cougar.webp"),
+  new componente("8002","KOLKE","DKet-1203",25,"amd,intel","../img/teclado/042020-O.jpg")
+];
+const ratones=[
+  new componente("7003","ASUS","RADEON RX550",249,"amd","../img/video/amd/rx-550.jpg"),
+  new componente("7002","BIOSTAR","Dual Radeon Rx 6500",593,"amd","../img/video/amd/rx6500.jpg")
+];
+let inventario=[{
+                categoria:"motherboard",
+                items:motherboard,
+                },
+                {
+                  categoria:"procesador",
+                  items:procesadores,
+                },
+                {
+                  categoria:"memoria",
+                  items:memorias,
+                  },
+                {
+                  categoria:"almacenamiento",
+                  items:discos,
+                },
+              {categoria:"grafica",
+                items:video},
+            {categoria:"gabinete",
+            items:gabinetes},
+            {categoria:"monitor",
+            items:monitores},
+            {categoria:"teclado",
+            items:teclados},
+            {categoria:"raton",
+            items:ratones}];;
 //retorna un elemento por el codigo
-function buscarC(comp,cod){
-return  comp.find(Comp => Comp.existe(cod));
+function buscarC(comp, cod) {
+  return comp.find((Comp) => Comp.existe(cod));
 }
 
 //filtra elementos por compatibilidad
-function filtraC(comp,compatible){
-return comp.filter(Comp => Comp.esCompatible(compatible));
-
+function filtraC(comp, compatible) {
+  return comp.filter((Comp) => Comp.esCompatible(compatible));
 }
-//Calcula el total dado un arreglo con articulos
-function subTotal(acu,prod)
+//Calcula el subtotal dado un arreglo con articulos
+function subTotal(acu, prod) {
+  acu = acu + prod.precio;
+  return acu;
+}
+
+function calcula_total(productos) {
+  
+  const suma = productos.reduce(subTotal, 0);
+  return suma;
+}
+
+
+
+
+
+
+let componentes = document.querySelectorAll(".main__hardware__componente");
+for (let componente of componentes) {
+  componente.addEventListener("click", abreModal);
+}
+
+
+
+
+function carga_componente(componente){
+  let main__modal__ofertas__item=document.createElement("div");
+  main__modal__ofertas__item.className="main__modal__ofertas__item";
+  let main__modal__ofertas__item__titulo=document.createElement('h2');
+  main__modal__ofertas__item__titulo.className="main__modal__ofertas__item__titulo";
+  main__modal__ofertas__item__titulo.innerHTML=componente.marca+" "+componente.modelo;
+  main__modal__ofertas__item.append(main__modal__ofertas__item__titulo);
+  let img=document.createElement("img");
+  img.src=componente.img;
+  main__modal__ofertas__item.append(img);
+  let main__modal__ofertas__item__precio=document.createElement('div');
+  main__modal__ofertas__item__precio.className= "main__modal__ofertas__item__precio";
+  let precio__articulo=document.createElement('h3');
+  precio__articulo.className='precio__articulo';
+  precio__articulo.innerHTML='precio: '+componente.precio +'US$';
+  main__modal__ofertas__item__precio.append(precio__articulo);
+  main__modal__ofertas__item.append(main__modal__ofertas__item__precio);
+  botonAgregar=document.createElement("button");
+  botonAgregar.className="bottonAgregar";
+  botonAgregar.setAttribute("id", componente.codigo);
+  botonAgregar.innerHTML="Agregar";
+  botonAgregar.addEventListener("click",agregarComp);
+  main__modal__ofertas__item__precio.append(botonAgregar);
+  return  main__modal__ofertas__item;
+}
+function agregarComp(e){
+  document.querySelector('.main__modal').remove();
+  let articulo= buscarEnInventario(e.target.id);
+  let tabla=document.getElementById("tabla");
+  let fila=document.createElement('tr');
+  fila.innerHTML=`<td><img class="main__carrito__table__img" src="${articulo.item.img}" alt=""></td></td><td>${articulo.item.codigo}</td><td>${articulo.item.marca} ${articulo.item.modelo}<td>${articulo.item.precio}US$`;
+  ultimaCelda=document.createElement("td");
+  //ultimaCelda.innerHTML=articulo.categotegoria;
+  botonQuitar=document.createElement('button');
+  botonQuitar.className="botonQuitar";
+  botonQuitar.innerHTML="X";
+  botonQuitar.addEventListener("click",function(e){alert("chupapika")});
+  ultimaCelda.append(botonQuitar);
+  fila.append(ultimaCelda);
+  
+
+  
+  tabla.append(fila);
+  /*
+  botonQuitar=document.getElementById('botonQuitar');
+  
+ 
+  */
+}
+function buscarEnInventario(num)
 {
-acu=acu+prod.precio;
-return acu;
+ for(comp of inventario)
+ {categoria=comp.categoria;
+  comP=buscarC(comp.items,num);
+    if(comP!=undefined)
+    {let articulo={categotegoria:categoria,
+    item:comP}
+    ;
+    
+      return articulo;
+
+    }
+   
+    
+ }
+  
+ 
 }
 
-function calcula_total(productos)
-{
-console.log(productos);
-const suma = productos.reduce(subTotal,0);
-return suma;
+
+function abreModal(e) {
+  categoria=e.target.id;
+
+  if( e.target.className=="")
+  categoria=e.target.innerHTML;
+  let main__modal = document.createElement("div");
+  let main__modal__barraT=document.createElement("div");
+  let main__modal__cerrar=document.createElement("button");
+  let h2=document.createElement("h2");
+  let main__modal__ofertas=document.createElement("div");
+  main__modal__ofertas.className="main__modal__ofertas";
+  h2.className="main__modal__categoria"
+  h2.innerHTML=categoria;
+  main__modal__cerrar.className="main__modal__cerrar"
+  main__modal__cerrar.innerHTML="X";
+  main__modal__barraT.className="main__modal__barraT";
+  main__modal.className = "main__modal";
+  main__hardware = document.querySelector(".main__hardware");
+  main__modal.style.display="flex";
+  main__hardware.append(main__modal);
+  main__modal.append(main__modal__barraT);
+  main__modal__barraT.append(h2);
+  main__modal__barraT.append(main__modal__cerrar);
+  main__modal__cerrar.addEventListener("click" ,function(e){
+    e.target.parentNode.parentNode.remove();});
+    main__modal.append(main__modal__ofertas);
+    let comp=inventario.filter(item=>item.categoria==categoria.toLowerCase() );
+    for (let componente of comp[0].items) {
+    item= carga_componente(componente);
+    main__modal__ofertas.append(item);
+    }
+ 
+ 
+
+ 
+  
+
+  
 }
-
-function mostrar_item(item){
-    return `codigo:${item.codigo} ${item.marca} ${item.modelo} precio ${item.precio}`+"US$ \n";
-}
-
-/*MUESTRA OPCIONES DE ARTICULOS*/
-function mostrar_opciones(comp){
-let codigo=prompt("OPCIONES DISPONIBLES\n"+comp.map(mostrar_item)+"escriba codigo de el item deseado");
-return codigo;
-}
-//selecciono componente por codigo en caso de no existir sigo pidiendolo
-function agrego_comp(componentes)
-{let op;
-    do{
-        op=mostrar_opciones(componentes);
-    }while(buscarC(componentes,op)==undefined)
-return buscarC(componentes,op);
-}
-
-//ejecucion 
-let armoPc=[];
-armoPc.push(agrego_comp(procesadores));
-armoPc.push(agrego_comp(filtraC(motherboard,armoPc[0].compatible)));
-armoPc.push(agrego_comp(memorias));
-armoPc.push(agrego_comp(discos));
-
-
-let total=calcula_total(armoPc);
-let subtotal=total/1.22;
-let iva=total-subtotal;
-alert("RESUMEN DE LA COMPRA\n"+ armoPc.map(mostrar_item)+"Subtotal "+parseInt(subtotal)+"US$\niva 22%  "+parseInt(iva)+"US$\nTOTAL:"+total+"us$");
-
-
-
-
-
-
-

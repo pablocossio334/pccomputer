@@ -65,25 +65,25 @@ body {
 
 main {
 
-    h1 {
-
-
-        display: block;
-        text-align: center;
-        margin-top: 2rem;
-        text-shadow: 2px 2px #14bc25;
-        width: 100%;
-        float: center;
-
-    }
+    display:flex;
 
     .main__hardware {
         display: flex;
         flex-wrap: wrap;
-        //background-color: black;
         justify-content: center;
         margin-top: 2rem;
-        width: 98vw;
+        width: 60vw;
+        h1 {
+
+
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            text-shadow: 2px 2px #14bc25;
+            width: 100%;
+            float: center;
+    
+        }
 
         #procesador {
             background-image: url("/img/procesador.jpg");
@@ -135,7 +135,8 @@ main {
             width: 100%;
             text-align: center;
             opacity: 0.7;
-            background-color: gray;
+            margin-top: 1rem;
+            text-shadow: 0.1em 0.1em 0.2em  greenyellow;
         }
 
         .main__hardware__componente {
@@ -166,25 +167,34 @@ main {
     }
 
     .main__modal {
-        display: none;
-        position: absolute;
-        border: 2px solid rgb(10, 210, 70);
-        width: 95vw;
+        display: flex;
+        flex-direction: column;
         background-color: black;
+        animation: "slide" 1.5s linear ;
+        background-size: cover;
+        position: absolute;
+        border-radius: 10px;
+    left:5rem;
+    width: 80rem;
+        border: 2px solid rgb(11, 241, 80);
+        
+        background-color: rgb(15, 16, 15);
 
         .main__modal__barraT {
             display: flex;
             justify-content: center;
+            width: 100%;
+        
 
             .main__modal__cerrar {
+                border-radius: 10px;
+                margin:0.4rem;
                 width: 2rem;
                 height: 2rem;
-                background-color: black;
-
-                img {
-                    width: 1rem;
-                    height: 1rem;
-                }
+                background-color: rgb(243, 12, 12);
+                color:rgb(236, 225, 225);
+                float:right;
+                
             }
 
         }
@@ -229,22 +239,23 @@ main {
 
                 img:hover {
                     cursor: pointer;
-                    border: 2px dotted green;
+                    
                 }
 
                 .main__modal__ofertas__item__precio {
 
                     display: flex;
                     width: 98%;
-                    justify-content: right;
+                    
 
                     .precio__articulo {
-                        width: 3rem;
+                       float:left;
                         background-color: black;
                         color: #4f9;
                     }
 
                     .bottonAgregar {
+                        //align-self: flex-end;
                         background-color: black;
                         color: rgb(28, 198, 28);
                         border-color: #4f9;
@@ -303,6 +314,32 @@ main {
         }
 
     }
+    .main__carrito{
+        border-style:solid;
+        margin-top:2rem;
+        color:#14bc25;
+        width: 40%;
+        .main__carrito__table{
+            background-color: #010a02;
+            .botonQuitar
+            {
+                margin:0.5rem;
+            background-color: red;
+            color:white;
+            height: 2rem;
+            width: 2rem;
+            }
+            .main__carrito__table__img
+            {
+                height: 5rem;
+                width: 5rem;
+            }
+            td {
+                border:2px solid rgba(255, 255, 255, 0.716);
+            }
+        }
+    }
+
 }
 
 
@@ -311,7 +348,14 @@ main {
     height: 29%;
 
 }
-
+@keyframes slide {
+    from {
+    left:-100rem;
+    }
+    to {
+left:5rem;
+    }
+}
 @keyframes efecto_leds {
     from {
         text-shadow: 0 0 15px rgb(0, 255, 0), 0 0 25px rgb(43, 255, 0), 0 0 45px rgb(18, 173, 34), 0 0 85px rgb(43, 255, 0);
@@ -350,7 +394,7 @@ main {
     }
 
     main {
-        background-color: red;
+        
     }
 
 

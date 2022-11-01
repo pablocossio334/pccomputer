@@ -19,33 +19,40 @@ ass
         </div>
     </header>
     <main>
-        <h1>SELECCIONE LOS COMPONENTES</h1>
         <div class="main__hardware">
+        <h1>SELECCIONE LOS COMPONENTES</h1>
+       
             <div class="main__hardware__componente" id ="procesador"> <h2>PROCESADOR</h2></div>
             <div class="main__hardware__componente" id ="motherboard"><h2>MOTHERBOARD</h2></div>
-            <div class="main__hardware__componente" id ="memoria"><h2>MEMORIA RAM</h2></div>
+            <div class="main__hardware__componente" id ="memoria"><h2>MEMORIA</h2></div>
             <div class="main__hardware__componente" id="almacenamiento"><h2>ALMACENAMIENTO</h2></div>
             <div class="main__hardware__componente" id="grafica"><h2>GRAFICA</h2></div>
-            <div class="main__hardware__componente" id="gabinete"><h2>GABINETES</h2></div>
+            <div class="main__hardware__componente" id="gabinete"><h2>GABINETE</h2></div>
             <div class="main__hardware__componente" id="monitor"><h2>MONITOR</h2></div>
             <div class="main__hardware__componente" id="teclado"><h2>TECLADO</h2></div>
             <div class="main__hardware__componente" id="raton"><h2>RATON</h2></div>
         
         </div>
-        <form action="" class="main__hardware__tprecio">
-            <div class="tprecio">
-                <label for="precio__articulo">SUB-TOTAL</label> <input id="precio__articulo" type="text" class="precio__articulo">
-            </div>
-            <div class="tprecio">
-                <label for="precio__articulo">IVA 22%</label> <input id="precio__articulo" type="text" class="precio__articulo">
-            </div>
-            <div class="tprecio">
-                <label for="precio__articulo">TOTAL</label> <input id="precio__articulo" type="text" class="precio__articulo">
-            </div>
-        </form>
+        <div class="main__carrito">
+            <table id="tabla" class="main__carrito__table">
+                <thead>
+                  <tr> 
+                    <td></td>            
+                    <td>Producto</td>
+                    <td>Cantidad</td>
+                    <td>Precio</td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                   
+                </tbody>
+            </table>
+        </div>
     </main>
+    
     <footer>
-        footer
+        footer CULO
     </footer>
     <script src="js/js.js"></script>
 </body>
