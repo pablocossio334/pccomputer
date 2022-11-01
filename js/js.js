@@ -151,7 +151,7 @@ function agregarComp(e){
   document.querySelector('.main__modal').remove();
   let articulo= buscarEnInventario(e.target.id);
   localStorage.setItem(articulo.categoria,JSON.stringify(articulo.item));
-  console.log("el index 1 es "+localStorage.key(1));
+  //console.log("el index 1 es "+localStorage.key(1));
   let tabla=document.getElementById("tabla");
   let fila=document.createElement('tr');
   fila.innerHTML=`<td><img class="main__carrito__table__img" src="${articulo.item.img}" alt=""></td></td><td>${articulo.item.codigo}</td><td>${articulo.item.marca} ${articulo.item.modelo}<td>${articulo.item.precio}US$`;
@@ -160,7 +160,7 @@ function agregarComp(e){
   botonQuitar=document.createElement('button');
   botonQuitar.className="botonQuitar";
   botonQuitar.innerHTML="X";
-  botonQuitar.addEventListener("click",function(e){alert("chupapika")});
+  botonQuitar.addEventListener("click",function(e){ e.target.parentNode.parentNode.remove();});
   ultimaCelda.append(botonQuitar);
   fila.append(ultimaCelda);
   
