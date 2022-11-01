@@ -42,13 +42,13 @@ const discos = [
   new componente("4002", "kingston", "Estado Solido 500", 150, "amd-Intel","../img/motherboard/disco/kingston480.jpg"),
 ];
 const video=[
-            new componente("5003","ASUS","RADEON RX550",249,"amd","../img/video/amd/rx-550.jpg"),
-            new componente("5002","BIOSTAR","Dual Radeon Rx 6500",593,"amd","../img/video/amd/rx6500.jpg")
+new componente("5003","ASUS","RADEON RX550",249,"amd","../img/video/amd/rx-550.jpg"),
+new componente("5002","BIOSTAR","Dual Radeon Rx 6500",593,"amd","../img/video/amd/rx6500.jpg")
 ];
 
 const gabinetes=[
-                new componente("6002","Nzxt","H510 Elite 2",259,"amd,intel","../img/gabinete/Nzxt H510.jpg"),
-                new componente("6003","Xigmatek","Venom X Arctic E-atx 4",129,"amd,intel","../img/gabinete/venom.jpg")
+new componente("6002","Nzxt","H510 Elite 2",259,"amd,intel","../img/gabinete/Nzxt H510.jpg"),
+new componente("6003","Xigmatek","Venom X Arctic E-atx 4",129,"amd,intel","../img/gabinete/venom.jpg")
 ];
 const monitores=[
   new componente("7003","LG ","UltraGear 24GN600 ",249,"amd,intel","../img/monitor/24GN600.jpg"),
@@ -177,9 +177,12 @@ function buscarEnInventario(num)
  {categoria=comp.categoria;
   comP=buscarC(comp.items,num);
     if(comP!=undefined)
-    {let articulo={categotegoria:categoria,
+    {let articulo={categoria:categoria,
     item:comP}
-    ;
+    
+    localStorage.setItem(articulo.categoria,JSON.stringify(articulo.item));
+    /*let coso=JSON.parse(localStorage.getItem('motherboard'));
+    console.log(coso.categoria);*/
     
       return articulo;
 
