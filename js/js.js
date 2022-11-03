@@ -150,28 +150,41 @@ function carga_componente(componente){
 function agregarComp(e){
   document.querySelector('.main__modal').remove();
   let articulo= buscarEnInventario(e.target.id);
-  localStorage.setItem(articulo.categoria,JSON.stringify(articulo.item));
-  //console.log("el index 1 es "+localStorage.key(1));
-  let tabla=document.getElementById("tabla");
-  let fila=document.createElement('tr');
-  fila.innerHTML=`<td><img class="main__carrito__table__img" src="${articulo.item.img}" alt=""></td></td><td>${articulo.item.codigo}</td><td>${articulo.item.marca} ${articulo.item.modelo}<td>${articulo.item.precio}US$`;
-  ultimaCelda=document.createElement("td");
-  //ultimaCelda.innerHTML=articulo.categotegoria;
-  botonQuitar=document.createElement('button');
-  botonQuitar.className="botonQuitar";
-  botonQuitar.innerHTML="X";
-  botonQuitar.addEventListener("click",function(e){ e.target.parentNode.parentNode.remove();});
-  ultimaCelda.append(botonQuitar);
-  fila.append(ultimaCelda);
-  
-
-  
-  tabla.append(fila);
-  /*
-  botonQuitar=document.getElementById('botonQuitar');
-  
+  localStorage.setItem(articulo.categoria,JSON.stringify(articulo));
  
-  */
+
+ atualizarCarrito();
+}
+function atualizarCarrito(){
+  document.querySelector('.main__carrito__table').remove();
+  tabla= document.createElement('table');
+  tabla.className='main__carrito__table';
+  document.querySelector('.main__carrito').append(tabla)
+  for(let i=0;i<localStorage.length;i++)
+  {
+    tabla.append(cargarEnTabla(JSON.parse(localStorage.getItem(localStorage.key(i)))));
+    
+  }
+}
+function cargarEnTabla(articulo){
+  console.log(articulo);
+  let nuevaFila=document.createElement('tr');
+  nuevaFila.innerHTML=`<td>${articulo.categoria}</td><td><img class="main__carrito__table__img" src="${articulo.item.img}" alt="" class="header__banner__logo__img" id="logo0"></td><td>${articulo.item.marca} ${articulo.item.modelo}</td><td>${articulo.item.precio} US$</td>`;
+  nuevaCelda=document.createElement('td');
+
+  botonEliminar=document.createElement('button');
+  botonEliminar.addEventListener("click",function(e){
+   
+    localStorage.removeItem(articulo.categoria);
+    atualizarCarrito();
+  })
+  botonEliminar.innerHTML="X";
+  nuevaCelda.append(botonEliminar);
+  nuevaFila.append(nuevaCelda)
+
+
+
+  return nuevaFila;
 }
 function buscarEnInventario(num)
 {
@@ -181,18 +194,13 @@ function buscarEnInventario(num)
     if(comP!=undefined)
     {let articulo={categoria:categoria,
     item:comP}
-    
-    
-    
-    
-      return articulo;
-
+    return articulo;
     }
-   
-    
- }
   
- 
+    
+}
+  
+
 }
 
 
