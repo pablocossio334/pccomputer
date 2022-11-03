@@ -59,8 +59,8 @@ const teclados=[
   new componente("8002","KOLKE","DKet-1203",25,"amd,intel","../img/teclado/042020-O.jpg")
 ];
 const ratones=[
-  new componente("7003","ASUS","RADEON RX550",249,"amd","../img/video/amd/rx-550.jpg"),
-  new componente("7002","BIOSTAR","Dual Radeon Rx 6500",593,"amd","../img/video/amd/rx6500.jpg")
+  new componente("9003","MSI","CLUTCH GM40",15,"amd,intel","../img/raton/raton1.jpg"),
+  new componente("9002","IMice","T96Gamer",10,"amd,intel","../img/raton/raton2.webp")
 ];
 let inventario=[{
                 categoria:"motherboard",
@@ -118,6 +118,7 @@ let componentes = document.querySelectorAll(".main__hardware__componente");
 for (let componente of componentes) {
   componente.addEventListener("click", abreModal);
 }
+atualizarCarrito();
 
 
 
@@ -151,11 +152,10 @@ function agregarComp(e){
   document.querySelector('.main__modal').remove();
   let articulo= buscarEnInventario(e.target.id);
   localStorage.setItem(articulo.categoria,JSON.stringify(articulo));
- 
-
  atualizarCarrito();
 }
 function atualizarCarrito(){
+  if(document.querySelector('.main__carrito__table')!=null)
   document.querySelector('.main__carrito__table').remove();
   tabla= document.createElement('table');
   tabla.className='main__carrito__table';
@@ -167,7 +167,6 @@ function atualizarCarrito(){
   }
 }
 function cargarEnTabla(articulo){
-  console.log(articulo);
   let nuevaFila=document.createElement('tr');
   nuevaFila.innerHTML=`<td>${articulo.categoria}</td><td><img class="main__carrito__table__img" src="${articulo.item.img}" alt="" class="header__banner__logo__img" id="logo0"></td><td>${articulo.item.marca} ${articulo.item.modelo}</td><td>${articulo.item.precio} US$</td>`;
   nuevaCelda=document.createElement('td');
@@ -179,7 +178,9 @@ function cargarEnTabla(articulo){
     atualizarCarrito();
   })
   botonEliminar.innerHTML="X";
+  botonEliminar.className="botonQuitar";
   nuevaCelda.append(botonEliminar);
+
   nuevaFila.append(nuevaCelda)
 
 

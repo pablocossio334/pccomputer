@@ -249,27 +249,37 @@ main .main__hardware__tprecio .precio__articulo {
   color: #4f9;
 }
 main .main__carrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-style: solid;
   margin-top: 2rem;
   color: #14bc25;
   width: 40%;
 }
+main .main__carrito .main__carrito__titulo {
+  text-shadow: 0.1em 0.1em 0.2em greenyellow;
+  color: rgb(222, 238, 229);
+}
 main .main__carrito .main__carrito__table {
-  background-color: #010a02;
+  margin-top: 2rem;
 }
 main .main__carrito .main__carrito__table .botonQuitar {
-  margin: 0.5rem;
   background-color: red;
   color: white;
-  height: 2rem;
-  width: 2rem;
+  height: 100%;
+  width: 100%;
 }
 main .main__carrito .main__carrito__table .main__carrito__table__img {
-  height: 5rem;
-  width: 5rem;
+  height: 100%;
+  width: 100%;
 }
 main .main__carrito .main__carrito__table td {
-  border: 2px solid rgba(255, 255, 255, 0.716);
+  background-color: antiquewhite;
+  border: 3px solid black;
+  color: black;
+  width: 10rem;
+  height: 5rem;
 }
 
 .imagen__articulo {

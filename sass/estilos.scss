@@ -63,6 +63,7 @@ body {
 
 }
 
+
 main {
 
     display:flex;
@@ -138,7 +139,6 @@ main {
             margin-top: 1rem;
             text-shadow: 0.1em 0.1em 0.2em  greenyellow;
         }
-
         .main__hardware__componente {
             border: 0.5rem solid rgb(18, 195, 11);
             height: 15rem;
@@ -255,7 +255,7 @@ main {
                     }
 
                     .bottonAgregar {
-                        //align-self: flex-end;
+
                         background-color: black;
                         color: rgb(28, 198, 28);
                         border-color: #4f9;
@@ -315,27 +315,44 @@ main {
 
     }
     .main__carrito{
+       
+        display:flex;
+        flex-direction: column;
+        align-items:center;
         border-style:solid;
         margin-top:2rem;
         color:#14bc25;
         width: 40%;
+        .main__carrito__titulo
+        {   text-shadow: 0.1em 0.1em 0.2em  greenyellow;
+            color:rgb(222, 238, 229);
+           
+        }
         .main__carrito__table{
-            background-color: #010a02;
+            margin-top:2rem;
+            
             .botonQuitar
             {
-                margin:0.5rem;
+                
             background-color: red;
             color:white;
-            height: 2rem;
-            width: 2rem;
+            height: 100%;
+            width: 100%;
             }
             .main__carrito__table__img
             {
-                height: 5rem;
-                width: 5rem;
+                height: 100%;
+                width: 100%;
             }
+            
             td {
-                border:2px solid rgba(255, 255, 255, 0.716);
+                
+                background-color: antiquewhite;
+                border:3px solid black;
+                color:black;
+                width: 10rem;
+                height: 5rem;
+                
             }
         }
     }
@@ -393,9 +410,7 @@ left:5rem;
 
     }
 
-    main {
-        
-    }
+   
 
 
 }
