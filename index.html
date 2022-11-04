@@ -1,46 +1,85 @@
-ass
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ARMA TU PC</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
     <header>
-        <div class="header__logo"><span class="header__logo__span1">PC</span><span class="header__logo__span2">COMPUTERS</span></div>
-        <div class="header__banner">
-            <div class="header__banner__logo" id="cuadro-1"><img src="img/logos/amd.jpg" alt="" class="header__banner__logo__img" id="logo0"></div>
-            <div class="header__banner__logo" id="cuadro-2" ><img src="img/logos/corsair.jpg" alt="" class="header__banner__logo__img" id="logo1"></div>
-            <div class="header__banner__logo" id="cuadro-3"><img src="img/logos/intelcore.webp" alt="" class="header__banner__logo__img" id="logo2"></div>
-            <div class="header__banner__logo" id="cuadro-4"><img src="img/logos/nvidia.png" alt="" class="header__banner__logo__img" id="logo3"></div>
+        <div class="header__logo">
+            <span class="header__logo__span1">PC</span>
+            <span class="header__logo__span2">COMPUTERS</span>
         </div>
+        <div class="header__banner">
+        <div class="header__banner__logo" id="cuadro-1">
+            <img src="img/logos/amd.jpg" alt=""class="header__banner__logo__img" id="logo0"/>
+        </div>
+        <div class="header__banner__logo" id="cuadro-2">
+            <img src="img/logos/corsair.jpg"  alt="" class="header__banner__logo__img" id="logo1"/>
+        </div>
+        <div class="header__banner__logo" id="cuadro-3">
+            <img src="img/logos/intelcore.webp"
+            alt="" class="header__banner__logo__img"
+            id="logo2" />
+        </div>
+        <div class="header__banner__logo" id="cuadro-4">
+            <img src="img/logos/nvidia.png" alt=""  class="header__banner__logo__img" id="logo3" />
+        </div>
+    </div>
     </header>
     <main>
-        <div class="main__hardware">
+    <div class="main__hardware">
         <h1>SELECCIONE LOS COMPONENTES</h1>
-       
-            <div class="main__hardware__componente" id ="procesador"> <h2>PROCESADOR</h2></div>
-            <div class="main__hardware__componente" id ="motherboard"><h2>MOTHERBOARD</h2></div>
-            <div class="main__hardware__componente" id ="memoria"><h2>MEMORIA</h2></div>
-            <div class="main__hardware__componente" id="almacenamiento"><h2>ALMACENAMIENTO</h2></div>
-            <div class="main__hardware__componente" id="grafica"><h2>GRAFICA</h2></div>
-            <div class="main__hardware__componente" id="gabinete"><h2>GABINETE</h2></div>
-            <div class="main__hardware__componente" id="monitor"><h2>MONITOR</h2></div>
-            <div class="main__hardware__componente" id="teclado"><h2>TECLADO</h2></div>
-            <div class="main__hardware__componente" id="raton"><h2>RATON</h2></div>
-        
+        <div class="main__hardware__componente" id="procesador">
+            <h2>PROCESADOR</h2>
         </div>
-        <div class="main__carrito">
-           <h2 class="main__carrito__titulo">TUS COMPONENTES</h2>
+        <div class="main__hardware__componente" id="motherboard">
+            <h2>MOTHERBOARD</h2>
         </div>
+        <div class="main__hardware__componente" id="memoria">
+            <h2>MEMORIA</h2>
+        </div>
+        <div class="main__hardware__componente" id="almacenamiento">
+            <h2>ALMACENAMIENTO</h2>
+        </div>
+        <div class="main__hardware__componente" id="grafica">
+            <h2>GRAFICA</h2>
+        </div>
+        <div class="main__hardware__componente" id="gabinete">
+            <h2>GABINETE</h2>
+        </div>
+        <div class="main__hardware__componente" id="monitor">
+            <h2>MONITOR</h2>
+        </div>
+        <div class="main__hardware__componente" id="teclado">
+            <h2>TECLADO</h2>
+        </div>
+        <div class="main__hardware__componente" id="raton"><h2>RATON</h2></div>
+    </div>
+    <div class="main__carrito">
+        <h2 class="main__carrito__titulo">TUS COMPONENTES</h2>
+        <div class="main__carrito__componentes"></div>
+        <div class="main__carrito__total">
+        <form action="" class="form__totales">
+            <fieldset>
+                <label for="subTotal">SUB-TOTAL</label>
+                <input id="subTotal" type="text" />
+            </fieldset>
+            <fieldset>
+                <label for="iva">IVA 22%</label><input id="iva" type="text" />
+            </fieldset>
+            <fieldset>
+                <label for="total">TOTAL</label><input id="total" type="text" />
+            </fieldset>
+        </form>
+        </div>
+    </div>
     </main>
-    
-    <footer>
-        footer CULO
-    </footer>
+
+    <footer>footer</footer>
     <script src="js/js.js"></script>
-</body>
+  </body>
 </html>
