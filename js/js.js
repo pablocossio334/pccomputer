@@ -6,6 +6,7 @@ class componente {
     this.precio = precio;
     this.img = img;
     this.compatible = compatible;
+    
   }
   subTotal(acu, producto) {
     acu = acu + acu + producto.precio;
@@ -28,6 +29,7 @@ const procesadores = [
     195,
     "amd",
     "../img/cpu/amd/ryzen5.png"
+   
   ),
   new componente(
     "1002",
@@ -36,6 +38,7 @@ const procesadores = [
     200,
     "amd",
     "../img/cpu/amd/ryzen7.png"
+   
   ),
   new componente(
     "1003",
@@ -44,6 +47,7 @@ const procesadores = [
     270,
     "intel",
     "../img/cpu/intel/core5.png"
+    
   ),
   new componente(
     "1004",
@@ -52,6 +56,7 @@ const procesadores = [
     280,
     "intel",
     "../img/cpu/intel/core7.png"
+   
   ),
 ];
 
@@ -62,7 +67,8 @@ const motherboard = [
     "AA209",
     300,
     "amd",
-    "../img/motherboard/amd/ASROCK.jpg"
+    "../img/motherboard/amd/ASROCK.jpg",
+   
   ),
   new componente(
     "2002",
@@ -70,7 +76,8 @@ const motherboard = [
     "A320m Am4",
     300,
     "amd",
-    "../img/motherboard/amd/BIOSTAR.jpg"
+    "../img/motherboard/amd/BIOSTAR.jpg",
+   
   ),
   new componente(
     "2003",
@@ -78,7 +85,8 @@ const motherboard = [
     "AA209",
     380,
     "intel",
-    "img/motherboard/intel/4ef32c54_5-241x241.png"
+    "img/motherboard/intel/4ef32c54_5-241x241.png",
+   
   ),
   new componente(
     "2004",
@@ -87,6 +95,7 @@ const motherboard = [
     480,
     "intel",
     "../img/motherboard/intel/aorus1.jpg"
+    
   ),
 ];
 const memorias = [
@@ -141,6 +150,14 @@ const video = [
     593,
     "amd",
     "../img/video/amd/rx6500.jpg"
+  ),
+  new componente(
+    "5009",
+    "GIGABYTE",
+    "GeForce RTX 3060 Gaming",
+    389,
+    "intel",
+    "../img/video/intel/3060.jpg"
   ),
 ];
 
@@ -244,12 +261,10 @@ function buscarC(comp, cod) {
   return comp.find((Comp) => Comp.existe(cod));
 }
 
-//filtra elementos por compatibilidad
-function filtraC(comp, compatible) {
-  return comp.filter((Comp) => Comp.esCompatible(compatible));
-}
+
 
 //ejecucion inicial
+
 let componentes = document.querySelectorAll(".main__hardware__componente");
 for (let componente of componentes) {
   componente.addEventListener("click", abreModal);
@@ -268,10 +283,43 @@ function carga_componente(componente) {
   main__modal__ofertas__item.append(main__modal__ofertas__item__titulo);
   let img = document.createElement("img");
   img.src = componente.img;
+  img.addEventListener("click",function(){
+    let texto="<li>SORETES DE PU</li>";
+for(let i=0;i<10;i++)
+texto+="<li>"+i+"</li>"
+
+    Swal.fire({
+      title: '<strong>'+componente.marca+" "+componente.modelo+'</strong>',
+      icon: 'componente.img',
+      html:
+      '<div class="swal2-html">'+
+        '<img src="'+img.src+'">' +
+        '<ul>'
+        +texto+
+        
+        
+        
+        
+        '</ul> ' +
+        
+        '</div>',
+        confirmButtonText:
+    'OKAY',
+  
+      showCloseButton: false,
+      showCancelButton: false,
+      focusConfirm: false,
+      
+    })
+
+
+
+
+
+  })
   main__modal__ofertas__item.append(img);
   let main__modal__ofertas__item__precio = document.createElement("div");
-  main__modal__ofertas__item__precio.className =
-    "main__modal__ofertas__item__precio";
+  main__modal__ofertas__item__precio.className ="main__modal__ofertas__item__precio";
   let precio__articulo = document.createElement("h3");
   precio__articulo.className = "precio__articulo";
   precio__articulo.innerHTML = "precio: " + componente.precio + "US$";
@@ -283,6 +331,7 @@ function carga_componente(componente) {
   botonAgregar.innerHTML = "Agregar";
   botonAgregar.addEventListener("click", agregarComp);
   main__modal__ofertas__item__precio.append(botonAgregar);
+ 
   return main__modal__ofertas__item;
 }
 //cuando apreto el boton agregar (seleccionar componente)
@@ -303,7 +352,9 @@ function atualizarCarrito() {
 
   for (let i = 0; i < localStorage.length; i++) {
     let articulo = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    tabla.append(cargarEnTabla(articulo));
+    nuevaFila=cargarEnTabla(articulo);
+    
+    tabla.append(nuevaFila)
     total = articulo.item.precio + total;
   }
   mostrarTotales(total);
@@ -319,6 +370,7 @@ function mostrarTotales(total) {
   inputIva.value = iva + " US$";
   inputTotal.value = total + " US$";
 }
+var tiempo=0;
 //carga un articulo en la tabla del carrito
 function cargarEnTabla(articulo) {
   let nuevaFila = document.createElement("tr");
@@ -333,8 +385,10 @@ function cargarEnTabla(articulo) {
   botonEliminar.innerHTML = "<img src='../img/papelera.png'>";
   botonEliminar.className = "botonQuitar";
   nuevaCelda.append(botonEliminar);
-
+  
+  tiempo=tiempo+1;
   nuevaFila.append(nuevaCelda);
+  
   return nuevaFila;
 }
 
@@ -349,11 +403,22 @@ function buscarEnInventario(num) {
     }
   }
 }
+//verifico la compatibilidad de lo que hay en memoria ya sea motherboard ,procesado, o grafica
+function verifico_compatibilidad(){
+  let tecnologia="all";
+  if(localStorage.getItem('motherboard')!=null)
+  tecnologia=JSON.parse(localStorage.getItem('motherboard')).item.compatible;
+  else if(localStorage.getItem('procesador')!=null)
+  tecnologia=JSON.parse(localStorage.getItem('procesador')).item.compatible;
+  else if(localStorage.getItem('grafica')!=null)
+  tecnologia=JSON.parse(localStorage.getItem('grafica')).item.compatible;
+  return tecnologia;
+}
+
 
 //abre la ventana Modal con listado de articulos dada una categoria
 function abreModal(e) {
   categoria = e.target.id;
-
   if (e.target.className == "") categoria = e.target.innerHTML;
   let main__modal = document.createElement("div");
   let main__modal__barraT = document.createElement("div");
@@ -376,12 +441,29 @@ function abreModal(e) {
   main__modal__cerrar.addEventListener("click", function (e) {
     e.target.parentNode.parentNode.remove();
   });
+
   main__modal.append(main__modal__ofertas);
   let comp = inventario.filter(
     (item) => item.categoria == categoria.toLowerCase()
   );
-  for (let componente of comp[0].items) {
-    item = carga_componente(componente);
+  
+
+if(categoria.toLowerCase()=='motherboard' ||categoria.toLowerCase()=='procesador'||categoria.toLowerCase()=="grafica" )
+tecnologia=verifico_compatibilidad();
+ else
+ tecnologia="amd,intel"
+
+ if(tecnologia!="all" && tecnologia!="amd,intel")
+  cat=comp[0].items.filter(
+    (item) =>item.compatible==tecnologia);
+  else
+  cat=comp[0].items;
+  
+ 
+  //let filter=comp[0].filter((item) => item.categoria == categoria.toLowerCase());
+  //console.log(filter);
+  for (let componente of cat) {
+      item = carga_componente(componente);
     main__modal__ofertas.append(item);
   }
 }

@@ -67,13 +67,16 @@ body {
 main {
 
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     .main__hardware {
+
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 2rem;
-        width: 60vw;
+        width: 50vw;
 
         h1 {
 
@@ -306,7 +309,8 @@ main {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-style: solid;
+        background-color: rgba(0, 0, 0, 0.549);
+        border: 2px solid rgba(0, 255, 81, 0.268);
 
         margin-top: 2rem;
         color: #14bc25;
@@ -346,17 +350,20 @@ main {
                 width: 100%;
             }
 
+            tr {
+                animation: "aparecer" 1.5s linear
+            }
 
             td {
 
                 left: 30rem;
                 text-align: center;
-                animation: "aparecer" 1.5s linear;
+
                 background-color: white;
                 border: 3px solid black;
                 color: black;
-                width: 10rem;
-                height: 10%;
+                width: 8rem;
+                height: 5rem;
 
             }
         }
@@ -420,6 +427,7 @@ main {
     }
 
     to {
+
         opacity: 1;
     }
 }
@@ -504,5 +512,36 @@ main {
 
     }
 
+
+}
+
+.swal2-popup {
+    background-color: black;
+    border: 2px solid green;
+    box-shadow: 0 0 10px #4f9;
+    opacity: .9;
+
+    .swal2-title {
+        background-color: #0a4410;
+        color:rgb(241, 228, 228);
+        display: block;
+        text-align: center;
+        text-shadow: 2px 2px #14bc25;
+        text-transform: uppercase;
+    }
+
+    .swal2-html {
+        display: flex;
+
+        img {
+            height: 10rem;
+            width: 15rem;
+        }
+
+    }
+
+    button {
+        background-color: #0a4410 !important;
+    }
 
 }
