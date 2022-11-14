@@ -273,10 +273,13 @@ main .main__carrito .main__carrito__table .main__carrito__table__img {
   height: 100%;
   width: 100%;
 }
+main .main__carrito .main__carrito__table th {
+  background-color: #0a4410 !important;
+}
 main .main__carrito .main__carrito__table tr {
   animation: "aparecer" 1.5s linear;
 }
-main .main__carrito .main__carrito__table td {
+main .main__carrito .main__carrito__table td, main .main__carrito .main__carrito__table th {
   left: 30rem;
   text-align: center;
   background-color: white;

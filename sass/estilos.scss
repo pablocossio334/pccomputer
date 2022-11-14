@@ -349,7 +349,10 @@ main {
                 height: 100%;
                 width: 100%;
             }
-
+        th{
+            @extend td;
+            background-color: #0a4410 !important;
+        }
             tr {
                 animation: "aparecer" 1.5s linear
             }

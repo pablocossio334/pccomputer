@@ -1,7 +1,7 @@
 async function filtrar_Items(categoria){
   const res= await fetch('productos.json');
   const data=await res.json();
-  console.log(data);
+ 
   let datosFiltradosCat=data.filter(dato=>dato.categoria==categoria);
   
  
@@ -17,7 +17,9 @@ abreModal(datosFiltradosCat);
 
 let componentes = document.querySelectorAll(".main__hardware__componente");
 for (let componente of componentes) {
-  componente.addEventListener("click", function(e){filtrar_Items(e.target.id)});
+  componente.addEventListener("click", function(e){
+  
+    filtrar_Items(componente.id)});
 }
 atualizarCarrito();
 
@@ -66,11 +68,13 @@ function atualizarCarrito() {
   document.querySelector(".main__carrito__table").remove();
   tabla = document.createElement("table");
   tabla.className = "main__carrito__table";
-  tabla.innerHTML="<th><td>articulo</td><td>cosoo</td><td>tres</td>  </th>"
+  
   document.querySelector(".main__carrito__componentes").append(tabla);
+  let total=0;
   for (let i = 0; i < localStorage.length; i++) {
     categoria=localStorage.key(i);
     articulo =JSON.parse(localStorage.getItem(localStorage.key(i)));
+    total=articulo.precio+total;
     nuevaFila=cargarEnTabla(articulo,categoria);
     document.querySelector(".main__carrito__table").append(nuevaFila);
   }
