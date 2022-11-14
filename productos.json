@@ -1,0 +1,231 @@
+[
+  {
+    "categoria": "procesador",
+    "items": [
+      {
+        "cod": "1001",
+        "marca": "amd",
+        "modelo": "ryzen5",
+        "precio": 195,
+        "compatible": "amd",
+        "img": "../img/cpu/amd/ryzen5.png"
+      },
+      {
+        "cod": "1002",
+        "marca": "amd",
+        "modelo": "ryzen7",
+        "precio": 200,
+        "compatible": "amd",
+        "img": "../img/cpu/amd/ryzen7.png"
+      },
+      {
+        "cod": "1003",
+        "marca": "intel",
+        "modelo": "corei5",
+        "precio": 270,
+        "compatible": "intel",
+        "img": "../img/cpu/intel/core5.png"
+      },
+      {
+        "cod": "1004",
+        "marca": "intel",
+        "modelo": "corei7",
+        "precio": 280,
+        "compatible": "intel",
+        "img": "../img/cpu/intel/core7.png"
+      }
+    ]
+  },
+  {
+    "categoria": "motherboard",
+    "items": [
+      {
+        "cod": "2001",
+        "marca": "Asrock",
+        "modelo": "AA209",
+        "precio": 300,
+        "compatible": "amd",
+        "img": "../img/motherboard/amd/ASROCK.jpg"
+      },
+      {
+        "cod": "2002",
+        "marca": "BIOSTAR",
+        "modelo": "A320m Am4",
+        "precio": 300,
+        "compatible": "amd",
+        "img": "../img/motherboard/amd/BIOSTAR.jpg"
+      },
+      {
+        "cod": "2003",
+        "marca": "Gigabyte",
+        "modelo": "AA209",
+        "precio": 380,
+        "compatible": "intel",
+        "img": "img/motherboard/intel/4ef32c54_5-241x241.png"
+      },
+      {
+        "cod": "2004",
+        "marca": "AORUS",
+        "modelo": "AA209",
+        "precio": 480,
+        "compatible": "intel",
+        "img": "../img/motherboard/intel/aorus1.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "memoria",
+    "items": [
+      {
+        "cod": "3001",
+        "marca": "kingston",
+        "modelo": "ddr8-8gb",
+        "precio": 80,
+        "compatible": "amd-Intel",
+        "img": "../img/ram/kingstonbeast.jpg"
+      },
+      {
+        "cod": "3002",
+        "marca": "kingston",
+        "modelo": "ddr8-16gb",
+        "precio": 100,
+        "compatible": "amd-Intel",
+        "img": "../img/ram/Kingston-Fury-Beast-DDR5-RGB.webp"
+      }
+    ]
+  },
+  {
+    "categoria": "almacenamiento",
+    "items": [
+      {
+        "cod": "4001",
+        "marca": "SONY",
+        "modelo": "estado Solido 250gb",
+        "precio": 80,
+        "compatible": "amd-Intel",
+        "img": "../img/motherboard/disco/kingston 250.jpg"
+      },
+      {
+        "cod": "4002",
+        "marca": "kingston",
+        "modelo": "Estado Solido 500",
+        "precio": 150,
+        "compatible": "amd-Intel",
+        "img": "../img/motherboard/disco/kingston480.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "grafica",
+    "items": [
+      {
+        "cod": "5003",
+        "marca": "ASUS",
+        "modelo": "RADEON RX550",
+        "precio": 249,
+        "compatible": "amd",
+        "img": "../img/video/amd/rx-550.jpg"
+      },
+      {
+        "cod": "5002",
+        "marca": "BIOSTAR",
+        "modelo": "Dual Radeon Rx 6500",
+        "precio": 593,
+        "compatible": "amd",
+        "img": "../img/video/amd/rx6500.jpg"
+      },
+      {
+        "cod": "5009",
+        "marca": "GIGABYTE",
+        "modelo": "GeForce RTX 3060 Gaming",
+        "precio": 389,
+        "compatible": "intel",
+        "img": "../img/video/intel/3060.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "gabinete",
+    "items": [
+      {
+        "cod": "6002",
+        "marca": "Nzxt",
+        "modelo": "H510 Elite 2",
+        "precio": 259,
+        "compatible": "amd,intel",
+        "img": "../img/gabinete/Nzxt H510.jpg"
+      },
+      {
+        "cod": "6003",
+        "marca": "Xigmatek",
+        "modelo": "Venom X Arctic E-atx 4",
+        "precio": 129,
+        "compatible": "amd,intel",
+        "img": "../img/gabinete/venom.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "monitor",
+    "items": [
+      {
+        "cod": "7003",
+        "marca": "LG ",
+        "modelo": "UltraGear 24GN600 ",
+        "precio": 249,
+        "compatible": "amd,intel",
+        "img": "../img/monitor/24GN600.jpg"
+      },
+      {
+        "cod": "7002",
+        "marca": "SAMSUMG",
+        "modelo": "F390 Series C24F390FH",
+        "precio": 593,
+        "compatible": "amd,intel",
+        "img": "../img/monitor/C24F390FH.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "teclado",
+    "items": [
+      {
+        "cod": "8003",
+        "marca": "COUGAR",
+        "modelo": " Core Sp",
+        "precio": 50,
+        "compatible": "amd,intel",
+        "img": "../img/teclado/Teclado-Mecanico-Cougar.webp"
+      },
+      {
+        "cod": "8002",
+        "marca": "KOLKE",
+        "modelo": "DKet-1203",
+        "precio": 25,
+        "compatible": "amd,intel",
+        "img": "../img/teclado/042020-O.jpg"
+      }
+    ]
+  },
+  {
+    "categoria": "raton",
+    "items": [
+      {
+        "cod": "9003",
+        "marca": "MSI",
+        "modelo": "CLUTCH GM40",
+        "precio": 15,
+        "compatible": "amd,intel",
+        "img": "../img/raton/raton1.jpg"
+      },
+      {
+        "cod": "9002",
+        "marca": "IMice",
+        "modelo": "T96Gamer",
+        "precio": 10,
+        "compatible": "amd,intel",
+        "img": "../img/raton/raton2.webp"
+      }
+    ]
+  }
+]
