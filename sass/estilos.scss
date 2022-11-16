@@ -67,16 +67,20 @@ body {
 main {
 
     display: flex;
+    flex-direction: row;
+    border-style: solid;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100vw;
 
     .main__hardware {
-
+        border-style: dotted;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        //width: 60rem; 
         margin-top: 2rem;
-        width: 50vw;
+        width: 60%;
+        //width: 30rem;
 
         h1 {
 
@@ -179,8 +183,9 @@ main {
         background-size: cover;
         position: absolute;
         border-radius: 10px;
-        left: 5rem;
-        width: 80rem;
+        left: 35vw;
+        top:10rem;
+        max-width: 80vw;
         border: 2px solid rgb(11, 241, 80);
 
         background-color: rgb(15, 16, 15);
@@ -308,16 +313,18 @@ main {
     .main__carrito {
         display: flex;
         flex-direction: column;
+        width: 35%;
+        min-width: 25rem;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.549);
-        border: 2px solid rgba(0, 255, 81, 0.268);
+        border: 5px solid rgba(0, 255, 81, 0.268);
 
         margin-top: 2rem;
         color: #14bc25;
-        width: 40%;
+        ;
 
         .main__carrito__componentes {
-            height: 80%;
+            height: auto;
             overflow-y: auto;
         }
 
@@ -346,26 +353,23 @@ main {
             }
 
             .main__carrito__table__img {
-                height: 100%;
-                width: 100%;
+                height: 4rem;
+                width: 4rem;
             }
-        th{
-            @extend td;
-            background-color: #0a4410 !important;
-        }
+
             tr {
-                animation: "aparecer" 1.5s linear
+                animation: "aparecer" .25s linear;
+
+
             }
 
             td {
 
-                left: 30rem;
                 text-align: center;
-
                 background-color: white;
                 border: 3px solid black;
                 color: black;
-                width: 8rem;
+
                 height: 5rem;
 
             }
@@ -378,8 +382,8 @@ main {
 
         form {
 
-            display: flex;
-            flex-direction: column;
+
+
 
             fieldset {
                 border: none;
@@ -402,7 +406,22 @@ main {
 
 
                 }
+
+                button {
+                    border-color: greenyellow;
+                    background-color: rgb(12, 64, 32);
+                    color: rgb(150, 234, 150);
+                    height: 4rem;
+                    width: 8rem;
+                    margin-bottom: 1rem;
+
+                    img {
+                        height: 3rem;
+                        width: 3rem;
+                    }
+                }
             }
+
         }
     }
 }
@@ -427,11 +446,13 @@ main {
 @keyframes aparecer {
     from {
         opacity: 0;
+        transform: translate(400px);
     }
 
     to {
 
         opacity: 1;
+        transform: translate(0px)
     }
 }
 
@@ -449,74 +470,62 @@ main {
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 980px) {
+
     body {
+
+
         header {
+            width: 99vw;
+            border-style: solid;
+
             .header__logo {
-                width: 20vw;
+                margin-left: 1rem;
+                height: 16rem;
+                width: 25%;
+
             }
 
             .header__banner {
-
-                width: 70vw;
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 2rem;
-            }
-
-        }
-
-        #cuadro-3,
-        #cuadro-4 {
-            display: none;
-        }
-
-    }
+                display: flex;
+                width: 65%;
+                align-items: center;
+                justify-content: center;
 
 
 
-
-}
-
-@media (max-width: 476px) {
-    body {
-        header {
-            .header__logo {
-                width: 40vw;
-                height: 20vh;
-            }
-
-            .header__banner {
-                margin: 0;
-                width: 30vw;
-                width: 12rem;
-                grid-template-columns: repeat(1, 1fr);
-                grid-gap: 0rem;
-                padding-left: 0.4rem;
-
-                .header__banner__logo {
-                    margin: 0;
-
-                    img {
-                        height: 10rem;
-                        width: 10rem;
-                    }
-
+                #cuadro-3,
+                #cuadro-4 {
+                    display: none;
                 }
-
             }
 
         }
 
-        #cuadro-2,
-        #cuadro-3,
-        #cuadro-4 {
-            display: none;
+        main {
+            width: 100vw;
+
+            .main__hardware {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main__carrito {
+                width: 100%;
+            }
+
         }
 
     }
-
-
 }
+
+
+
+
+
+
+
 
 .swal2-popup {
     background-color: black;
@@ -526,7 +535,7 @@ main {
 
     .swal2-title {
         background-color: #0a4410;
-        color:rgb(241, 228, 228);
+        color: rgb(241, 228, 228);
         display: block;
         text-align: center;
         text-shadow: 2px 2px #14bc25;

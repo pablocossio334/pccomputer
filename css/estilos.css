@@ -54,15 +54,18 @@ body header .header__banner .header__banner__logo img {
 
 main {
   display: flex;
+  flex-direction: row;
+  border-style: solid;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100vw;
 }
 main .main__hardware {
+  border-style: dotted;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin-top: 2rem;
-  width: 50vw;
+  width: 60%;
 }
 main .main__hardware h1 {
   display: block;
@@ -144,8 +147,9 @@ main .main__modal {
   background-size: cover;
   position: absolute;
   border-radius: 10px;
-  left: 5rem;
-  width: 80rem;
+  left: 35vw;
+  top: 10rem;
+  max-width: 80vw;
   border: 2px solid rgb(11, 241, 80);
   background-color: rgb(15, 16, 15);
 }
@@ -240,15 +244,16 @@ main .main__modal .main__modal__ofertas .main__modal__ofertas__item .main__modal
 main .main__carrito {
   display: flex;
   flex-direction: column;
+  width: 35%;
+  min-width: 25rem;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.549);
-  border: 2px solid rgba(0, 255, 81, 0.268);
+  border: 5px solid rgba(0, 255, 81, 0.268);
   margin-top: 2rem;
   color: #14bc25;
-  width: 40%;
 }
 main .main__carrito .main__carrito__componentes {
-  height: 80%;
+  height: auto;
   overflow-y: auto;
 }
 main .main__carrito .main__carrito__titulo {
@@ -270,31 +275,22 @@ main .main__carrito .main__carrito__table .botonQuitar img {
   height: 2rem;
 }
 main .main__carrito .main__carrito__table .main__carrito__table__img {
-  height: 100%;
-  width: 100%;
-}
-main .main__carrito .main__carrito__table th {
-  background-color: #0a4410 !important;
+  height: 4rem;
+  width: 4rem;
 }
 main .main__carrito .main__carrito__table tr {
-  animation: "aparecer" 1.5s linear;
+  animation: "aparecer" 0.25s linear;
 }
-main .main__carrito .main__carrito__table td, main .main__carrito .main__carrito__table th {
-  left: 30rem;
+main .main__carrito .main__carrito__table td {
   text-align: center;
   background-color: white;
   border: 3px solid black;
   color: black;
-  width: 8rem;
   height: 5rem;
 }
 main .main__carrito__total {
   height: 20%;
   width: 100%;
-}
-main .main__carrito__total form {
-  display: flex;
-  flex-direction: column;
 }
 main .main__carrito__total form fieldset {
   border: none;
@@ -314,6 +310,18 @@ main .main__carrito__total form fieldset input {
   margin-right: 1rem;
   height: 2rem;
 }
+main .main__carrito__total form fieldset button {
+  border-color: greenyellow;
+  background-color: rgb(12, 64, 32);
+  color: rgb(150, 234, 150);
+  height: 4rem;
+  width: 8rem;
+  margin-bottom: 1rem;
+}
+main .main__carrito__total form fieldset button img {
+  height: 3rem;
+  width: 3rem;
+}
 
 .imagen__articulo {
   width: 19rem;
@@ -331,9 +339,11 @@ main .main__carrito__total form fieldset input {
 @keyframes aparecer {
   from {
     opacity: 0;
+    transform: translate(400px);
   }
   to {
     opacity: 1;
+    transform: translate(0px);
   }
 }
 @keyframes efecto_leds {
@@ -346,44 +356,36 @@ main .main__carrito__total form fieldset input {
     text-shadow: 0 0 15px rgb(2, 19, 2), 0 0 25px rgb(24, 25, 24), 0 0 45px rgb(2, 16, 3), 0 0 45px rgb(4, 12, 2);
   }
 }
-@media (max-width: 950px) {
+@media (max-width: 980px) {
+  body header {
+    width: 99vw;
+    border-style: solid;
+  }
   body header .header__logo {
-    width: 20vw;
+    margin-left: 1rem;
+    height: 16rem;
+    width: 25%;
   }
   body header .header__banner {
-    width: 70vw;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
+    display: flex;
+    width: 65%;
+    align-items: center;
+    justify-content: center;
   }
-  body #cuadro-3,
-body #cuadro-4 {
+  body header .header__banner #cuadro-3,
+body header .header__banner #cuadro-4 {
     display: none;
   }
-}
-@media (max-width: 476px) {
-  body header .header__logo {
-    width: 40vw;
-    height: 20vh;
+  body main {
+    width: 100vw;
   }
-  body header .header__banner {
-    margin: 0;
-    width: 30vw;
-    width: 12rem;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 0rem;
-    padding-left: 0.4rem;
+  body main .main__hardware {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
-  body header .header__banner .header__banner__logo {
-    margin: 0;
-  }
-  body header .header__banner .header__banner__logo img {
-    height: 10rem;
-    width: 10rem;
-  }
-  body #cuadro-2,
-body #cuadro-3,
-body #cuadro-4 {
-    display: none;
+  body main .main__carrito {
+    width: 100%;
   }
 }
 .swal2-popup {

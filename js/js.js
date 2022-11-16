@@ -18,7 +18,6 @@ abreModal(datosFiltradosCat);
 let componentes = document.querySelectorAll(".main__hardware__componente");
 for (let componente of componentes) {
   componente.addEventListener("click", function(e){
-  
     filtrar_Items(componente.id)});
 }
 atualizarCarrito();
@@ -53,32 +52,47 @@ function carga_componente(componente,categoria) {
   botonAgregar.innerHTML = "Agregar";
   botonAgregar.addEventListener("click",function() {agregarComp(componente,categoria)});
   main__modal__ofertas__item__precio.append(botonAgregar);
- 
   return main__modal__ofertas__item;
 }
 //cuando apreto el boton agregar (seleccionar componente)
 function agregarComp(componente,categoria) {
+ 
+
 document.querySelector(".main__modal").remove();
+
 localStorage.setItem(categoria, JSON.stringify(componente)); //agrego el articulo al LocalStorage
   atualizarCarrito();
 }
 //actualizo carrito con los datos que hay en el localStorage
 function atualizarCarrito() {
+  let total=0;
+  mostrarTotales(total);
   if (document.querySelector(".main__carrito__table") != null)
   document.querySelector(".main__carrito__table").remove();
   tabla = document.createElement("table");
   tabla.className = "main__carrito__table";
   
   document.querySelector(".main__carrito__componentes").append(tabla);
-  let total=0;
+  
+
   for (let i = 0; i < localStorage.length; i++) {
-    categoria=localStorage.key(i);
-    articulo =JSON.parse(localStorage.getItem(localStorage.key(i)));
-    total=articulo.precio+total;
-    nuevaFila=cargarEnTabla(articulo,categoria);
-    document.querySelector(".main__carrito__table").append(nuevaFila);
+   
+    let segundos=i*150;
+    
+    setTimeout(()=>{
+      categoria=localStorage.key(i);
+      articulo =JSON.parse(localStorage.getItem(localStorage.key(i)));
+     
+      nuevaFila=cargarEnTabla(articulo,categoria);
+      document.querySelector(".main__carrito__table").append(nuevaFila);
+      total=total+articulo.precio;
+      mostrarTotales(total)
+     
+    
+    },segundos);
+    
   }
-mostrarTotales(total);
+  
 }
 //actualizo los Totales en pantalla
 function mostrarTotales(total) {
