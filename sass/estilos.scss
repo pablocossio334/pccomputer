@@ -183,7 +183,7 @@ main {
         background-size: cover;
         position: absolute;
         border-radius: 10px;
-        left: 35vw;
+        left: 0;
         top:10rem;
         max-width: 80vw;
         border: 2px solid rgb(11, 241, 80);
@@ -318,11 +318,8 @@ main {
         align-items: center;
         background-color: rgba(0, 0, 0, 0.549);
         border: 5px solid rgba(0, 255, 81, 0.268);
-
         margin-top: 2rem;
         color: #14bc25;
-        ;
-
         .main__carrito__componentes {
             height: auto;
             overflow-y: auto;

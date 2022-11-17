@@ -11,6 +11,7 @@ async function filtrar_Items(categoria){
       let datosFiltradosCatC=datosFiltradosCat[0].items.filter(dato=>dato.compatible==verifico_compatibilidad());
       datosFiltradosCat[0].items=datosFiltradosCatC
     }
+window.scroll(0,0);
 abreModal(datosFiltradosCat);
 }
 

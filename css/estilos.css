@@ -147,7 +147,7 @@ main .main__modal {
   background-size: cover;
   position: absolute;
   border-radius: 10px;
-  left: 35vw;
+  left: 0;
   top: 10rem;
   max-width: 80vw;
   border: 2px solid rgb(11, 241, 80);
