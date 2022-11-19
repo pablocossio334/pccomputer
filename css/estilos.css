@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -55,13 +57,11 @@ body header .header__banner .header__banner__logo img {
 main {
   display: flex;
   flex-direction: row;
-  border-style: solid;
   flex-wrap: wrap;
   justify-content: center;
   width: 100vw;
 }
 main .main__hardware {
-  border-style: dotted;
   display: flex;
   flex-wrap: wrap;
   margin-top: 2rem;
@@ -249,6 +249,8 @@ main .main__carrito {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.549);
   border: 5px solid rgba(0, 255, 81, 0.268);
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
   margin-top: 2rem;
   color: #14bc25;
 }
@@ -275,8 +277,8 @@ main .main__carrito .main__carrito__table .botonQuitar img {
   height: 2rem;
 }
 main .main__carrito .main__carrito__table .main__carrito__table__img {
-  height: 4rem;
-  width: 4rem;
+  height: 94%;
+  width: 100%;
 }
 main .main__carrito .main__carrito__table tr {
   animation: "aparecer" 0.25s linear;
@@ -317,6 +319,7 @@ main .main__carrito__total form fieldset button {
   height: 4rem;
   width: 8rem;
   margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 main .main__carrito__total form fieldset button img {
   height: 3rem;
@@ -326,6 +329,10 @@ main .main__carrito__total form fieldset button img {
 .imagen__articulo {
   width: 19rem;
   height: 29%;
+}
+
+footer {
+  margin-left: 3rem;
 }
 
 @keyframes slide {
@@ -359,7 +366,6 @@ main .main__carrito__total form fieldset button img {
 @media (max-width: 980px) {
   body header {
     width: 99vw;
-    border-style: solid;
   }
   body header .header__logo {
     margin-left: 1rem;
@@ -386,6 +392,18 @@ body header .header__banner #cuadro-4 {
   }
   body main .main__carrito {
     width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  body header .header__logo {
+    border-style: solid;
+    width: 45%;
+  }
+  body header .header__banner {
+    width: 45%;
+  }
+  body header .header__banner #cuadro-1 {
+    display: none;
   }
 }
 .swal2-popup {

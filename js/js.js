@@ -1,3 +1,13 @@
+
+//main
+let componentes = document.querySelectorAll(".main__hardware__componente");
+for (let componente of componentes) {
+  componente.addEventListener("click", function(e){
+    filtrar_Items(componente.id)});
+}
+atualizarCarrito();
+
+//filtra componentes por categoria desde un archivo .json
 async function filtrar_Items(categoria){
   const res= await fetch('productos.json');
   const data=await res.json();
@@ -16,25 +26,14 @@ abreModal(datosFiltradosCat);
 }
 
 
-let componentes = document.querySelectorAll(".main__hardware__componente");
-for (let componente of componentes) {
-  componente.addEventListener("click", function(e){
-    filtrar_Items(componente.id)});
-}
-atualizarCarrito();
 
-
-
-
-
-//carga la descripcion de un componente
+//carga datos de un componente
 function carga_componente(componente,categoria) {
   
   let main__modal__ofertas__item = document.createElement("div");
   main__modal__ofertas__item.className = "main__modal__ofertas__item";
   let main__modal__ofertas__item__titulo = document.createElement("h2");
-  main__modal__ofertas__item__titulo.className =
-    "main__modal__ofertas__item__titulo";
+  main__modal__ofertas__item__titulo.className ="main__modal__ofertas__item__titulo";
   main__modal__ofertas__item__titulo.innerHTML =
     componente.marca + " " + componente.modelo;
   main__modal__ofertas__item.append(main__modal__ofertas__item__titulo);
@@ -57,10 +56,10 @@ function carga_componente(componente,categoria) {
 }
 //cuando apreto el boton agregar (seleccionar componente)
 function agregarComp(componente,categoria) {
- 
-
-document.querySelector(".main__modal").remove();
-
+document.querySelector(".main__modal__ofertas").remove();
+document.querySelector(".main__modal__barraT").remove();
+document.querySelector(".main__modal").style.display="none";
+console.log("zorete");
 localStorage.setItem(categoria, JSON.stringify(componente)); //agrego el articulo al LocalStorage
   atualizarCarrito();
 }
@@ -72,24 +71,16 @@ function atualizarCarrito() {
   document.querySelector(".main__carrito__table").remove();
   tabla = document.createElement("table");
   tabla.className = "main__carrito__table";
-  
   document.querySelector(".main__carrito__componentes").append(tabla);
-  
-
   for (let i = 0; i < localStorage.length; i++) {
-   
     let segundos=i*150;
-    
-    setTimeout(()=>{
+      setTimeout(()=>{
       categoria=localStorage.key(i);
       articulo =JSON.parse(localStorage.getItem(localStorage.key(i)));
-     
       nuevaFila=cargarEnTabla(articulo,categoria);
       document.querySelector(".main__carrito__table").append(nuevaFila);
       total=total+articulo.precio;
       mostrarTotales(total)
-     
-    
     },segundos);
     
   }
@@ -120,10 +111,8 @@ function cargarEnTabla(articulo,categoria) {
   botonEliminar.innerHTML = "<img src='../img/papelera.png'>";
   botonEliminar.className = "botonQuitar";
   nuevaCelda.append(botonEliminar);
-  
   tiempo=tiempo+1;
   nuevaFila.append(nuevaCelda);
-  
   return nuevaFila;
 }
 
@@ -143,11 +132,17 @@ function verifico_compatibilidad(){
 
 //abre la ventana Modal con listado de articulos dada una categoria
 function abreModal(items) {
- 
+
   categoria=items[0].categoria;
   let comp = items;
- 
-  let main__modal = document.createElement("div");
+  //si ya hay una categoria cargada la cierro
+  if(document.querySelector(".main__modal__ofertas")!=null)
+  {
+    document.querySelector(".main__modal__ofertas").remove();
+    document.querySelector(".main__modal__barraT").remove();
+  }
+  let main__modal = document.querySelector(".main__modal");
+
   let main__modal__barraT = document.createElement("div");
   let main__modal__cerrar = document.createElement("button");
   let h2 = document.createElement("h2");
@@ -161,12 +156,13 @@ function abreModal(items) {
   main__modal.className = "main__modal";
   main__hardware = document.querySelector(".main__hardware");
   main__modal.style.display = "flex";
-  main__hardware.append(main__modal);
   main__modal.append(main__modal__barraT);
   main__modal__barraT.append(h2);
   main__modal__barraT.append(main__modal__cerrar);
   main__modal__cerrar.addEventListener("click", function (e) {
-    e.target.parentNode.parentNode.remove();
+    main__modal = document.querySelector(".main__modal").style.display="none";
+    document.querySelector(".main__modal__ofertas").remove();
+    document.querySelector(".main__modal__barraT").remove();
   });
   main__modal.append(main__modal__ofertas);
   cat=comp[0].items;

@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -68,19 +70,17 @@ main {
 
     display: flex;
     flex-direction: row;
-    border-style: solid;
     flex-wrap: wrap;
     justify-content: center;
     width: 100vw;
 
     .main__hardware {
-        border-style: dotted;
+
         display: flex;
         flex-wrap: wrap;
-        //width: 60rem; 
         margin-top: 2rem;
         width: 60%;
-        //width: 30rem;
+
 
         h1 {
 
@@ -184,10 +184,9 @@ main {
         position: absolute;
         border-radius: 10px;
         left: 1rem;
-        top:10rem;
+        top: 10rem;
         max-width: 80vw;
         border: 2px solid rgb(11, 241, 80);
-
         background-color: rgb(15, 16, 15);
 
         .main__modal__barraT {
@@ -318,8 +317,11 @@ main {
         align-items: center;
         background-color: rgba(0, 0, 0, 0.549);
         border: 5px solid rgba(0, 255, 81, 0.268);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
         margin-top: 2rem;
         color: #14bc25;
+
         .main__carrito__componentes {
             height: auto;
             overflow-y: auto;
@@ -350,25 +352,26 @@ main {
             }
 
             .main__carrito__table__img {
-                height: 4rem;
-                width: 4rem;
+                
+                height:94%;
+                width: 100%;
+
             }
 
             tr {
                 animation: "aparecer" .25s linear;
+                
 
 
             }
 
             td {
-
                 text-align: center;
                 background-color: white;
                 border: 3px solid black;
                 color: black;
-
+            
                 height: 5rem;
-
             }
         }
     }
@@ -411,6 +414,7 @@ main {
                     height: 4rem;
                     width: 8rem;
                     margin-bottom: 1rem;
+                    margin-right: 1rem;
 
                     img {
                         height: 3rem;
@@ -427,6 +431,11 @@ main {
 .imagen__articulo {
     width: 19rem;
     height: 29%;
+
+}
+
+footer {
+    margin-left: 3rem;
 
 }
 
@@ -474,7 +483,7 @@ main {
 
         header {
             width: 99vw;
-            border-style: solid;
+
 
             .header__logo {
                 margin-left: 1rem;
@@ -488,8 +497,6 @@ main {
                 width: 65%;
                 align-items: center;
                 justify-content: center;
-
-
 
                 #cuadro-3,
                 #cuadro-4 {
@@ -518,6 +525,32 @@ main {
 }
 
 
+@media (max-width: 500px) {
+    body{
+
+        header {
+        
+            .header__logo {
+            border-style:solid; 
+            width: 45%;
+                
+            }
+    
+            .header__banner {
+            width: 45%;
+    
+                #cuadro-1,
+                 {
+                    display: none;
+    
+                }
+            }
+        }
+    }
+
+    }
+    
+   
 
 
 
