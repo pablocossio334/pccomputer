@@ -411,6 +411,7 @@ body header .header__banner #cuadro-4 {
   border: 2px solid green;
   box-shadow: 0 0 10px #4f9;
   opacity: 0.9;
+  width: 30vw;
 }
 .swal2-popup .swal2-title {
   background-color: #0a4410;
@@ -420,12 +421,24 @@ body header .header__banner #cuadro-4 {
   text-shadow: 2px 2px #14bc25;
   text-transform: uppercase;
 }
-.swal2-popup .swal2-html {
+.swal2-popup .swal {
+  width: 100%;
   display: flex;
+  justify-content: center;
+  justify-items: center;
 }
-.swal2-popup .swal2-html img {
-  height: 10rem;
-  width: 15rem;
+.swal2-popup .swal ul {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.swal2-popup .swal ul li {
+  display: inline;
+  width: max-content;
+}
+.swal2-popup .swal ul li img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .swal2-popup button {
   background-color: #0a4410 !important;

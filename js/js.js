@@ -5,6 +5,8 @@ for (let componente of componentes) {
   componente.addEventListener("click", function(e){
     filtrar_Items(componente.id)});
 }
+document.getElementById('botonComprar').addEventListener("click",pagar )
+
 atualizarCarrito();
 
 //filtra componentes por categoria desde un archivo .json
@@ -59,7 +61,6 @@ function agregarComp(componente,categoria) {
 document.querySelector(".main__modal__ofertas").remove();
 document.querySelector(".main__modal__barraT").remove();
 document.querySelector(".main__modal").style.display="none";
-console.log("zorete");
 localStorage.setItem(categoria, JSON.stringify(componente)); //agrego el articulo al LocalStorage
   atualizarCarrito();
 }
@@ -86,6 +87,15 @@ function atualizarCarrito() {
   }
   
 }
+function comprobar_carrito(item)
+{
+  for(let i=0;i<localStorage.length;i++)
+  {
+    if(localStorage.key(i)==item)
+      return true;
+  }
+  return false;
+}
 //actualizo los Totales en pantalla
 function mostrarTotales(total) {
   let subTotal = parseFloat(total / 1.21).toFixed(2);
@@ -96,6 +106,7 @@ function mostrarTotales(total) {
   inputSubototal.value = subTotal + " US$";
   inputIva.value = iva + " US$";
   inputTotal.value = total + " US$";
+  
 }
 var tiempo=0;
 //carga un articulo en la tabla del carrito
@@ -171,3 +182,51 @@ function abreModal(items) {
     main__modal__ofertas.append(item);
   }
 }
+
+function img_tic(boolean){
+  if(boolean==true)
+  return "img/ok.gif"
+  else
+  return "img/error.gif"
+}
+function pagar(){
+  let valor=true;
+  function generar_codigo(){
+  let texto='<h2>Componentes minimos para armar tu computadora</h2>';
+  componentesM=['motherboard','procesador','memoria','gabinete','almacenamiento'];
+   texto=texto+'<div class=swal><ul>';
+   componentesM.forEach(function(element){
+    valor=valor&comprobar_carrito(element);
+    
+    texto=texto+'<li>'+'<img src="'+img_tic(comprobar_carrito(element))+'"/>'+element+'</li>';
+   
+   });
+   
+   
+    return texto;
+  }
+  Swal.fire({
+  
+    title:"COMPROBANDO...",
+    html:
+    generar_codigo(),
+    
+    
+    footer:"<a href=''>IR A GOOGLE</a>",
+    showClass:{
+        popup: 'animate__animated animate__bounceInRight'
+    },
+    hideClass:{
+        popup: 'animate__animated animate__hinge'
+    }
+
+
+
+});
+if(valor==0){
+  console.log("incompleto")
+}
+else console.log("completo");
+}
+
+
