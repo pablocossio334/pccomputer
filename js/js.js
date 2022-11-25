@@ -212,7 +212,7 @@ function pagar(){
     generar_codigo(),
     
     
-    footer:"<a href=''>IR A GOOGLE</a>",
+    footer:"SORETE EN BARRA>",
     showClass:{
         popup: 'animate__animated animate__bounceInRight'
     },
@@ -223,10 +223,19 @@ function pagar(){
 
 
 });
+botonOk=document.querySelector('.swal2-confirm');
+footer=document.querySelector('.swal2-footer');
 if(valor==0){
-  console.log("incompleto")
+  botonOk.innerHTML="OK";
+  footer.style.color="red";
+ footer.innerHTML="<h3>Faltan componentes no se puede continuar</h3>" 
+  
 }
-else console.log("completo");
+else {
+  botonOk.innerHTML="CONTINUAR..";
+  footer.style.color="green";
+  footer.innerHTML="<h3>Continuar con MercadoPago </h3>" 
+}
 }
 
 
