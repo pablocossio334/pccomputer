@@ -87,6 +87,7 @@ function atualizarCarrito() {
   }
   
 }
+//le paso un componente y verifica si se encuentra en localstorage
 function comprobar_carrito(item)
 {
   for(let i=0;i<localStorage.length;i++)
