@@ -405,6 +405,9 @@ body header .header__banner #cuadro-4 {
   body header .header__banner #cuadro-1 {
     display: none;
   }
+  .swal2-popup {
+    width: 100vw !important;
+  }
 }
 .swal2-popup {
   background-color: black;
